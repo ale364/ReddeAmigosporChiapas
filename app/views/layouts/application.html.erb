@@ -1,15 +1,91 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Reddeamigosporchiapas</title>
+    <title>Red de amigos por chiapas</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style type="text/css">
+      nav{
+        height:70px;
+        clear:both;
+        box-sizing:border-box;
+        margin: 0% 1% 1% 1%;
+        padding: 0% 1% 1% 1%;
+        width:98%;
+          -webkit-border-radius:5px;
+          -moz-border-radius:5px;
+        border-radius:5px;
+        background: rgb(84,83,83); /* Old browsers */
+        background: -moz-linear-gradient(top,  rgba(84,83,83,1) 1%, rgba(36,36,36,1) 79%, rgba(36,36,36,1) 100%, rgba(36,36,36,1) 100%, rgba(83,203,241,1) 100%, rgba(83,203,241,1) 100%, rgba(36,36,36,1) 100%, rgba(36,36,36,1) 100%, rgba(36,36,36,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(84,83,83,1)), color-stop(79%,rgba(36,36,36,1)), color-stop(100%,rgba(36,36,36,1)), color-stop(100%,rgba(36,36,36,1)), color-stop(100%,rgba(83,203,241,1)), color-stop(100%,rgba(83,203,241,1)), color-stop(100%,rgba(36,36,36,1)), color-stop(100%,rgba(36,36,36,1)), color-stop(100%,rgba(36,36,36,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  rgba(84,83,83,1) 1%,rgba(36,36,36,1) 79%,rgba(36,36,36,1) 100%,rgba(36,36,36,1) 100%,rgba(83,203,241,1) 100%,rgba(83,203,241,1) 100%,rgba(36,36,36,1) 100%,rgba(36,36,36,1) 100%,rgba(36,36,36,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  rgba(84,83,83,1) 1%,rgba(36,36,36,1) 79%,rgba(36,36,36,1) 100%,rgba(36,36,36,1) 100%,rgba(83,203,241,1) 100%,rgba(83,203,241,1) 100%,rgba(36,36,36,1) 100%,rgba(36,36,36,1) 100%,rgba(36,36,36,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  rgba(84,83,83,1) 1%,rgba(36,36,36,1) 79%,rgba(36,36,36,1) 100%,rgba(36,36,36,1) 100%,rgba(83,203,241,1) 100%,rgba(83,203,241,1) 100%,rgba(36,36,36,1) 100%,rgba(36,36,36,1) 100%,rgba(36,36,36,1) 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  rgba(84,83,83,1) 1%,rgba(36,36,36,1) 79%,rgba(36,36,36,1) 100%,rgba(36,36,36,1) 100%,rgba(83,203,241,1) 100%,rgba(83,203,241,1) 100%,rgba(36,36,36,1) 100%,rgba(36,36,36,1) 100%,rgba(36,36,36,1) 100%); /* W3C */
+          -webkit-box-shadow:0px 2px 2px #000;
+          -moz-box-shadow:0px 2px 2px #000;
+        box-shadow:0px 2px 2px #000;
+        color: rgba(#fff,.6);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#545353', endColorstr='#242424',GradientType=0 ); /* IE6-9 */
+      }
+    </style>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="main">
+
+    <%= render 'layouts/header' %>
+
+    <!-- <section id="banner"></section> -->
+    <section id="cuerpo"></section>
+    <article class="">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </article>
+
+    <div class="container">
+        <%= yield %>
+    </div>
+
+    <%= render 'layouts/footer' %>
+
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large red">
+        <i class="large material-icons">list</i>
+      </a>
+      <ul>
+        <li><a class="btn-floating red"><i class="material-icons" href="https://www.facebook.com/Red.de.Amigos.por.Chiapas">face</i></a></li>
+        <li><a class="btn-floating amber darken-3 tooltipped" data-position="top" data-tooltip="961.579.10.83"><i class="material-icons">phone</i></a>
+        <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+        <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+      </ul>
+    </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+       var elems = document.querySelectorAll('.sidenav');
+       var instances = M.Sidenav.init(elems);
+     });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.fixed-action-btn');
+      var instances = M.FloatingActionButton.init(elems, {
+        direction: 'left'
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.tooltipped');
+      var instances = M.Tooltip.init(elems);
+    });
+  </script>
   </body>
 </html>

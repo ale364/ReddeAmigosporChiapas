@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col s12 m5">
+    <%= image_tag @sitio.sitio_img.url(:sitio_show), class: "sitio-show" %>
+  </div>
+  <div class="col s12 m7">
+    <div class="sitio-info">
+      <h2 class="sitio-title"><%= @sitio.title %></h2>
+      <div class="average-review-rating" data-score=<%= @average_review %>></div>
+      <span class="number-of-reviews">Con base a <%= @sitio.reviews.count %> comentarios</span>
+      <p class="sitio-desc"><%= @sitio.description %></p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12 m5">
+    <!--Comentarios y Rating Reviews/Rating -->
+    <div class="reviews">
+      <h3>Comentarios</h3>
+      <%= render @sitio.reviews %>
+      <div>
+        <%= link_to "Add Review", new_sitio_review_path(@sitio), class: "btn grey lighten-1 black-text" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="links btn-group">
+  <%= link_to "Back", root_path, class:"btn amber darken-3" %>
+  <% if user_signed_in? %>
+    <% if @sitio.user_id == current_user.id %>
+      <%= link_to "Edit", edit_sitio_path(@sitio), class:"btn amber darken-3" %>
+      <%= link_to "Delete", sitio_path(@sitio), method: :delete, data: {confirm: "¿Está seguro de borrar?"}, class:"btn amber darken-3" %>
+    <% end %>
+  <% end %>
+</div>
+
+
+<script>
+  $('.review-rating').raty({
+    readOnly: true,
+    score: function(){
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>
+<script>
+  $('.average-review-rating').raty({
+    readOnly: true,
+    path: '/assets/',
+    score: function(){
+      return $(this).attr('data-score')
+    }
+  });
+</script>

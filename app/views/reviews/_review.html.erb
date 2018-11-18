@@ -1,0 +1,13 @@
+<div class="review">
+  <div class="review-rating" data-score="<%= review.rating %>"></div>
+  <p class="review-comment"><%= review.comment %></p>
+
+  <% if user_signed_in? %>
+    <% if review.user_id == current_user.id %>
+      <div class="links btn-group">
+        <%= link_to "Editar", edit_sitio_review_path(review.sitio, review), class: "btn amber darken-3" %>
+        <%= link_to "Borrar", sitio_review_path(review.sitio, review), method: :delete, data:{confirm: "Está seguro?"}, class: "btn amber darken-3" %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,15 @@
+<%= simple_form_for([@sitio, @sitio.reviews.build]) do |f| %>
+  <div id="rating-form">
+    <label for="">Calificar</label>
+  <!--   <%= f.input :rating %> -->
+  </div>
+  <%= f.input :comment %>
+  <%= f.button :submit, class:"btn grey lighten-1 btn-flat" %>
+<% end %>
+
+<script>
+  $('#rating-form').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
+</script>

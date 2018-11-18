@@ -1,0 +1,9 @@
+<div class="row">
+  <% @sitios.each do |sitio| %>
+    <div class="col s12 m4">
+      <a href="/sitios/<%= sitio.id %>">
+        <%= image_tag sitio.sitio_img.url(:sitio_index), class: "sitio" %>
+      </a>
+    </div>
+  <% end %>
+</div>

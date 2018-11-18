@@ -1,0 +1,7 @@
+<%= simple_form_for @sitio, html: {multipart: true} do |f| %>
+  <%= f.file_field :sitio_img %>
+  <%= f.input :title, label: "Nombre del Sitio" %>
+  <%= f.input :description %>
+  <%= f.input :author %>
+  <%= f.button :submit, class: 'btn teal darken-1 waves-effect' %>
+<% end %>

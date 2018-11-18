@@ -1,0 +1,19 @@
+---
+es:
+  activerecord:
+    errors:
+      models:
+        account:
+          attributes:
+            username:
+              invalid: solo letras, números y guiones bajos
+        status:
+          attributes:
+            reblog:
+              taken: del estado ya existe
+    models:
+      image: 'Imagen'
+    attributes:
+      image:
+        description: 'Descripción'
+        picture: 'Imagen'

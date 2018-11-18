@@ -1,0 +1,31 @@
+<header class="">
+  <nav class="">
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo"><%= link_to image_tag("LogoRedAmigoscv.png", id:"logo"), root_path %></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
+          <li><%= link_to "Salir", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Afiliarse", new_user_registration_path %></li>
+          <li><%= link_to "Ingresar", new_user_session_path %></li>
+        <% end %>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
+          <li><%= link_to "Agregar Sitio", new_sitio_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <% if user_signed_in? %>
+      <li><%= link_to "Agregar Sitio", new_sitio_path %></li>
+      <li><%= link_to "Salir", destroy_user_session_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to "Afiliarse", new_user_registration_path %></li>
+      <li><%= link_to "Ingresar", new_user_session_path %></li>
+    <% end %>
+  </ul>
+</header>
