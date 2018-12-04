@@ -53,39 +53,23 @@
         <%= yield %>
     </div>
 
-    <%= render 'layouts/footer' %>
-
     <div class="fixed-action-btn">
       <a class="btn-floating btn-large red">
         <i class="large material-icons">list</i>
       </a>
       <ul>
-        <li><a class="btn-floating red"><i class="material-icons" href="https://www.facebook.com/Red.de.Amigos.por.Chiapas">face</i></a></li>
+        <li><a class="btn-floating red" href="https://www.facebook.com/Red.de.Amigos.por.Chiapas" target="_blank"><i class="material-icons">face</i></a></li>
         <li><a class="btn-floating amber darken-3 tooltipped" data-position="top" data-tooltip="961.579.10.83"><i class="material-icons">phone</i></a>
         <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
         <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
       </ul>
     </div>
 
+    <%= render 'layouts/footer' %>
+
+
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-       var elems = document.querySelectorAll('.sidenav');
-       var instances = M.Sidenav.init(elems);
-     });
-  </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.fixed-action-btn');
-      var instances = M.FloatingActionButton.init(elems, {
-        direction: 'left'
-      });
-    });
-  </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.tooltipped');
-      var instances = M.Tooltip.init(elems);
-    });
+      M.AutoInit();
   </script>
   </body>
 </html>
