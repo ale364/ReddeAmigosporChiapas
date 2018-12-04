@@ -48,9 +48,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'web-console', '>= 3.3.0'
   gem 'better_errors', '~> 2.5'
   gem 'spring'
+end
+group :development do
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :production do
